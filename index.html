@@ -102,24 +102,41 @@ function initialize(){
 	let loader = new THREE.TextureLoader();
 	let texture = load.load('images/border.png');
 
+	let patternArray = ["letterA", "letterB", "letterC", "letterD", "letterF", "kanji", "hiro"];
+	let imageArray = ["A", "B", "C", "D", "F", "K", "H"];
+	for (let i=0; i<7; i++){
+		let makerRoot = new THREE.Group();
+		scene.add(makerRoot);
+		let makerControls = new THREEx.ArMarkerControls(arToolkitContext, makerRoot, {
+			type : 'pattern', patternHRL: "data/" + patternArray[i] + ".patt"
+		});
 
-	// build markerControls
-	markerRoot1 = new THREE.Group();
-	scene.add(markerRoot1);
-	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, { type: 'pattern', patternUrl: "data/hiro.patt", });
-	// let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, { type: 'pattern', patternUrl: "data/hiro.patt", })
-	// let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, { type: 'pattern', patternUrl: "data/hiro.patt", })
-	// let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, { type: 'pattern', patternUrl: "data/hiro.patt", })
+		let geometry = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
+		let texture = loader.load("images/" + imageArray[i] + ".png", render);
+		let material = new THREE.MeshBasicMaterial({map:texture});
+		let mesh = new THREE.mesh( geometry, material);
+		mesh.rotation.x = -Math.PI/2;
 
-	let geometry1 = new THREE.PlaneBufferGeometry(1,1, 4,4);
-	let loader = new THREE.TextureLoader();
-	let texture = loader.load( 'images/earth.jpg', render );
-	let material1 = new THREE.MeshBasicMaterial( { map: texture } );
+		makerRoot1.add(mesh);
+	}
+
+	// // build markerControls
+	// // markerRoot1 = new THREE.Group();
+	// scene.add(markerRoot1);
+	// let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, { type: 'pattern', patternUrl: "data/hiro.patt", });
+	// // let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, { type: 'pattern', patternUrl: "data/hiro.patt", })
+	// // let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, { type: 'pattern', patternUrl: "data/hiro.patt", })
+	// // let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, { type: 'pattern', patternUrl: "data/hiro.patt", })
+
+	// let geometry1 = new THREE.PlaneBufferGeometry(1,1, 4,4);
+	// let loader = new THREE.TextureLoader();
+	// let texture = loader.load( 'images/earth.jpg', render );
+	// let material1 = new THREE.MeshBasicMaterial( { map: texture } );
 	
-	mesh1 = new THREE.Mesh( geometry1, material1 );
-	mesh1.rotation.x = -Math.PI/2;
+	// mesh1 = new THREE.Mesh( geometry1, material1 );
+	// mesh1.rotation.x = -Math.PI/2;
 	
-	markerRoot1.add( mesh1 );
+	// markerRoot1.add( mesh1 );
 }
 
 
