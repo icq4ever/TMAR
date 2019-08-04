@@ -114,7 +114,7 @@ function initialize(){
 		let geometry = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
 		let texture = loader.load("images/" + imageArray[i] + ".png", render);
 		let material = new THREE.MeshBasicMaterial({map:texture});
-		let mesh = new THREE.mesh( geometry, material);
+		let mesh = new THREE.Mesh( geometry, material);
 		mesh.rotation.x = -Math.PI/2;
 
 		makerRoot1.add(mesh);
