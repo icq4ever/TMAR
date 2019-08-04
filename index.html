@@ -108,7 +108,7 @@ function initialize(){
 		let makerRoot = new THREE.Group();
 		scene.add(makerRoot);
 		let makerControls = new THREEx.ArMarkerControls(arToolkitContext, makerRoot, {
-			type : 'pattern', patternHRL: "data/" + patternArray[i] + ".patt"
+			type : 'pattern', patternURL: "data/" + patternArray[i] + ".patt"
 		});
 
 		let geometry = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
