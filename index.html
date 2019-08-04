@@ -86,7 +86,7 @@ function initialize(){
 
 	// create atToolkitContext
 	arToolkitContext = new THREEx.ArToolkitContext({
-		cameraParametersUrl: 'data/camera_para.dat',
+		cameraParametersUrl: './data/camera_para.dat',
 		detectionMode: 'mono'
 	});
 	
@@ -100,7 +100,7 @@ function initialize(){
 	////////////////////////////////////////////////////////////
 
 	let loader = new THREE.TextureLoader();
-	let texture = loader.load('images/border.png');
+	let texture = loader.load('./images/border.png');
 
 	let patternArray = ["letterA", "letterB", "letterC", "letterD", "letterF", "kanji", "hiro"];
 	let imageArray = ["A", "B", "C", "D", "F", "K", "H"];
@@ -108,11 +108,11 @@ function initialize(){
 		let makerRoot = new THREE.Group();
 		scene.add(makerRoot);
 		let makerControls = new THREEx.ArMarkerControls(arToolkitContext, makerRoot, {
-			type : 'pattern', patternURL: "data/" + patternArray[i] + ".patt"
+			type : 'pattern', patternURL: "./data/" + patternArray[i] + ".patt",
 		});
 
 		let geometry = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
-		let texture = loader.load("images/" + imageArray[i] + ".png", render);
+		let texture = loader.load("./images/" + imageArray[i] + ".png", render);
 		let material = new THREE.MeshBasicMaterial({map:texture});
 		let mesh = new THREE.Mesh( geometry, material);
 		mesh.rotation.x = -Math.PI/2;
