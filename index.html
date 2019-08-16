@@ -26,6 +26,7 @@
 var scene, camera, renderer, clock, deltaTime, totalTime;
 var arToolkitSource, arToolkitContext;
 var markerRoot1;
+var mesh1;
 
 initialize();
 animate();
@@ -99,15 +100,15 @@ function initialize(){
 	////////////////////////////////////////////////////////////
 
 	let loader = new THREE.TextureLoader();
-	// let texture = loader.load('./images/border.png');
+	let texture = loader.load('./images/border.png');
 
-	let patternArray = ["01", "02", "03", "04", "05"];
-	let imageArray = ["01", "02", "03", "04", "05"];
-	for (let i=0; i<imageArray.length; i++){
+	let patternArray = ["letterA", "letterB", "letterC", "letterD", "letterF", "kanji", "hiro"];
+	let imageArray = ["A", "B", "C", "D", "F", "K", "H"];
+	for (let i=0; i<7; i++){
 		let makerRoot = new THREE.Group();
 		scene.add(makerRoot);
 		let makerControls = new THREEx.ArMarkerControls(arToolkitContext, makerRoot, {
-			type : 'pattern', patternUrl: "./data/pattern-" + patternArray[i] + ".patt",
+			type : 'pattern', patternUrl: "./data/" + patternArray[i] + ".patt",
 		});
 
 		let geometry = new THREE.PlaneBufferGeometry(1, 1, 4, 4);
