@@ -104,7 +104,7 @@ function initialize(){
 
 	let patternArray = ["01", "01", "03", "04", "05"];
 	let imageArray = ["01", "02", "03", "04", "05"];
-	for (let i=0; i<7; i++){
+	for (let i=0; i<imageArray.length; i++){
 		let makerRoot = new THREE.Group();
 		scene.add(makerRoot);
 		let makerControls = new THREEx.ArMarkerControls(arToolkitContext, makerRoot, {
