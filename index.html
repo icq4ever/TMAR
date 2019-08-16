@@ -26,7 +26,6 @@
 var scene, camera, renderer, clock, deltaTime, totalTime;
 var arToolkitSource, arToolkitContext;
 var markerRoot1;
-var mesh1;
 
 initialize();
 animate();
@@ -100,7 +99,7 @@ function initialize(){
 	////////////////////////////////////////////////////////////
 
 	let loader = new THREE.TextureLoader();
-	let texture = loader.load('./images/border.png');
+	// let texture = loader.load('./images/border.png');
 
 	let patternArray = ["01", "02", "03", "04", "05"];
 	let imageArray = ["01", "02", "03", "04", "05"];
